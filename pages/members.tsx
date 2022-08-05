@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { PageTitle } from '../components/page-title';
+import { mq } from 'my-constants';
 
 const bandMembers = [
   {
@@ -73,7 +74,15 @@ function BandMember({
         />
       </div>
 
-      <div css={{ display: 'flex', alignItems: 'flex-end', margin: '2rem 0' }}>
+      <div
+        css={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          margin: '2rem 0',
+          [mq[0]]: { flexDirection: 'row', alignItems: 'flex-end' },
+        }}
+      >
         <h2
           css={{
             fontSize: '2.5rem',
@@ -89,7 +98,8 @@ function BandMember({
             fontSize: '1.2rem',
             textTransform: 'uppercase',
             letterSpacing: '.15rem',
-            marginLeft: '1rem',
+            marginTop: '.5rem',
+            [mq[0]]: { marginLeft: '1rem' },
           }}
         >
           {role}

@@ -12,6 +12,17 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-size: 12px;
+
+  --main-color: black;
+
+  --home-width: 90vw;
+
+  --home-height: calc(90vw * 0.5625);
+
+  --home-max-width: 90rem;
+
+  --home-max-height: calc(90rem * 0.5625);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,5 +32,29 @@ a {
   body {
     color: white;
     background: black;
+  }
+}
+
+@media (min-width: 576px) {
+  * {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) {
+  * {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) {
+  * {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  * {
+    font-size: 16px;
   }
 }

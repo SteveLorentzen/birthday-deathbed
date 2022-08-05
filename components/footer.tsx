@@ -1,5 +1,9 @@
 function Footer() {
-  return <div>footer</div>;
+  return (
+    <div css={{ display: 'flex', backgroundColor: 'black' }}>
+      <div></div>
+    </div>
+  );
 }
 
 export { Footer };
