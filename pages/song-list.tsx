@@ -38,14 +38,14 @@ function SongList() {
           flexDirection: 'column',
           alignItems: 'center',
           'p:not(:last-child)': {
-            marginBottom: '2rem',
+            marginBottom: '3rem',
           },
           marginBottom: '12rem',
         }}
       >
         {songList.map((song) => {
           return (
-            <p css={{ fontSize: '2rem' }} key={song}>
+            <p css={{ fontSize: '2rem', textAlign: 'center' }} key={song}>
               {song}
             </p>
           );

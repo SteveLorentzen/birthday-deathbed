@@ -1,12 +1,5 @@
 import Image from 'next/image';
-
-const width = '90vw';
-
-const height = 'calc(90vw * .5625)';
-
-const maxWidth = '90rem';
-
-const maxHeight = 'calc(90rem * .5625)';
+import { mq } from 'my-constants';
 
 function Home() {
   return (
@@ -14,7 +7,7 @@ function Home() {
       css={{
         display: 'flex',
         justifyContent: 'center',
-        padding: '8rem',
+        padding: '3rem',
       }}
     >
       <div
@@ -22,9 +15,14 @@ function Home() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          maxWidth: maxWidth,
+          maxWidth: 'var(--home-maxWidth)',
           '& > div': {
-            marginBottom: '14rem',
+            marginBottom: '5rem',
+          },
+          [mq[0]]: {
+            '& > div': {
+              marginBottom: '10rem',
+            },
           },
         }}
       >
@@ -45,9 +43,22 @@ function Home() {
               ></Image>
             </h1>
           </div>
-          <h2 css={{ fontSize: '1.8rem' }}>
+          <h2
+            css={{
+              fontSize: '1.4rem',
+              textAlign: 'center',
+              [mq[2]]: { fontSize: '1.8rem' },
+            }}
+          >
             A{' '}
-            <span css={{ fontSize: '3rem', fontStyle: 'italic' }}>
+            <span
+              css={{
+                fontSize: '2.3rem',
+                whiteSpace: 'nowrap',
+                fontStyle: 'italic',
+                [mq[0]]: { fontSize: '3rem' },
+              }}
+            >
               Stone Temple Pilots
             </span>{' '}
             tribute
@@ -62,10 +73,10 @@ function Home() {
         >
           <iframe
             css={{
-              width: width,
-              height: height,
+              width: 'var(--home-width)',
+              height: 'var(--home-height)',
               maxWidth: '90rem',
-              maxHeight: maxHeight,
+              maxHeight: 'var(--home-max-height)',
             }}
             width='560'
             height='315'
@@ -76,7 +87,7 @@ function Home() {
             allowFullScreen
           ></iframe>
         </div>
-        <div css={{ maxWidth: maxWidth, width: '100%' }}>
+        <div css={{ maxWidth: 'var(--home-max-width)', width: '100%' }}>
           <h3
             css={{
               fontSize: '3rem',
@@ -86,7 +97,7 @@ function Home() {
         <div
           css={{
             width: '100%',
-            maxWidth: maxWidth,
+            maxWidth: 'var(--home-max-width)',
             display: 'flex',
             flex: '1',
             flexDirection: 'column',

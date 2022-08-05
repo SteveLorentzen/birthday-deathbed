@@ -1,8 +1,22 @@
 import Link from 'next/link';
+import * as React from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { mq } from 'my-constants';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { keyframes } from '@emotion/react';
 
 const headerHeight = '5rem';
+
+const slidein = keyframes`
+	0% {
+		transform: translateX(-100%)
+	}
+
+	100% {
+		transform: translateX(0)	
+	}
+`;
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -13,19 +27,16 @@ const navLinks = [
 ];
 
 function Header() {
+  const [menuIsOpen, setMenuIsOpen] = React.useState(false);
+
   const router = useRouter();
 
   return (
     <>
-      {/* {router.pathname === '/' ? null : (
-        <div css={{ height: headerHeight }}></div>
-      )} */}
       <div
         css={{
           display: 'flex',
-          //   position: 'absolute',
-          //   top: 0,
-          //   left: 0,
+
           width: '100%',
           justifyContent: 'space-between',
           height: headerHeight,
@@ -50,22 +61,30 @@ function Header() {
               <Image
                 alt='Birthday Deathbed Logo'
                 src='/images/short_logo_birthday_deathbed.png'
-                width='90'
-                height='60'
+                width='75'
+                height='50'
               ></Image>
             </a>
           </Link>
         </div>
+
+        <AiOutlineMenu
+          color='white'
+          size={34}
+          css={{ [mq[0]]: { display: 'none' } }}
+          onClick={() => setMenuIsOpen((prev) => !prev)}
+        />
+
         <ul
           css={{
             display: 'none',
-            '@media (min-width: 1000px)': {
-              display: 'flex',
-            },
             listStyle: 'none',
             zIndex: 3,
             'li:not(:last-child)': {
               marginRight: '4rem',
+            },
+            [mq[0]]: {
+              display: 'flex',
             },
           }}
         >
@@ -74,9 +93,7 @@ function Header() {
               <li
                 key={navLink.name}
                 css={{
-                  fontSize: '1.5rem',
                   fontWeight: 'lighter',
-
                   color: navLink.path === router.pathname ? 'orange' : 'white',
                   textDecoration:
                     navLink.path === router.pathname ? 'underline' : '',
@@ -86,13 +103,72 @@ function Header() {
                 }}
               >
                 <Link href={navLink.path}>
-                  <a>{navLink.name}</a>
+                  <a css={{ fontSize: '1.3rem', cursor: 'pointer' }}>
+                    {navLink.name}
+                  </a>
                 </Link>
               </li>
             );
           })}
         </ul>
       </div>
+      {menuIsOpen ? (
+        <div
+          css={{
+            display: 'flex',
+            alignContent: 'center',
+            width: '100vw',
+            height: '100vh',
+            position: 'fixed',
+            backgroundColor: 'black',
+            zIndex: 5,
+            animation: `${slidein} .3s ease-out`,
+          }}
+        >
+          <ul
+            css={{
+              display: 'flex',
+              textAlign: 'center',
+              flexDirection: 'column',
+              width: '100%',
+              alignContent: 'center',
+              listStyle: 'none',
+              zIndex: 7,
+              color: 'white',
+              'li:not(:last-child)': {
+                marginBottom: '2rem',
+              },
+              marginTop: '3rem',
+            }}
+          >
+            {navLinks.map((navLink) => {
+              return (
+                <li
+                  key={navLink.name}
+                  css={{
+                    color:
+                      navLink.path === router.pathname ? 'orange' : 'white',
+                    textDecoration:
+                      navLink.path === router.pathname ? 'underline' : '',
+                    'a:active, a:hover': {
+                      color: 'orange',
+                    },
+                  }}
+                >
+                  <Link href={navLink.path}>
+                    <a
+                      css={{ fontSize: '3rem', cursor: 'pointer' }}
+                      onClick={() => setMenuIsOpen(false)}
+                    >
+                      {navLink.name}
+                    </a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      ) : null}
     </>
   );
 }
