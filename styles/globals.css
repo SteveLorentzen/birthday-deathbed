@@ -14,7 +14,8 @@ a {
   margin: 0;
   font-size: 12px;
 
-  --main-color: black;
+  --color-orange: hsl(28, 96%, 72%);
+  --color-red-dark: hsl(0, 61%, 21%);
 
   --home-width: 90vw;
 
@@ -23,6 +24,14 @@ a {
   --home-max-width: 90rem;
 
   --home-max-height: calc(90rem * 0.5625);
+
+  --footer-height: 14rem;
+
+  --header-height: 6rem;
+
+  --main-content-min-height: calc(
+    (100vh - var(--footer-height)) - var(--header-height)
+  );
 }
 
 @media (prefers-color-scheme: dark) {
