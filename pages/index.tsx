@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { mq } from "my-constants";
+import { Performances } from "components/performances";
 
 function Home() {
   return (
@@ -45,18 +46,19 @@ function Home() {
           </div>
           <h2
             css={{
-              fontSize: "1.4rem",
+              fontSize: "var(--font-small)",
               textAlign: "center",
-              [mq[2]]: { fontSize: "1.8rem" },
+              [mq[2]]: { fontSize: "var(--font-medium)" },
             }}
           >
             A{" "}
             <span
               css={{
-                fontSize: "2.3rem",
+                fontSize: "var(--font-medium)",
                 whiteSpace: "nowrap",
                 fontStyle: "italic",
-                [mq[0]]: { fontSize: "3rem" },
+                [mq[0]]: { fontSize: "var(--font-large)" },
+                [mq[1]]: { fontSize: "var(--font-xl)" },
                 // color: "var(--color-red-dark)",
               }}
             >
@@ -76,7 +78,7 @@ function Home() {
             css={{
               width: "var(--home-width)",
               height: "var(--home-height)",
-              maxWidth: "90rem",
+              maxWidth: "var(--home-max-width)",
               maxHeight: "var(--home-max-height)",
             }}
             width="560"
@@ -91,10 +93,11 @@ function Home() {
         <div css={{ maxWidth: "var(--home-max-width)", width: "100%" }}>
           <h3
             css={{
-              fontSize: "3rem",
+              fontSize: "var(--font-xl)",
             }}
           ></h3>
         </div>
+        <Performances />
         <div
           css={{
             width: "100%",
@@ -104,7 +107,7 @@ function Home() {
             flexDirection: "column",
           }}
         >
-          <div css={{ flexBasis: "60%" }}>
+          <div>
             <Image
               src="/images/birthday_deathbed_1.jpg"
               width="1442"

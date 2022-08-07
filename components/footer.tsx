@@ -18,7 +18,7 @@ function Footer() {
       <div
         css={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
-        <h4 css={{ fontSize: "1.5rem" }}>Follow us on:</h4>
+        <h4 css={{ fontSize: "var(--font-small)" }}>Follow us on:</h4>
         <div
           css={{
             display: "flex",

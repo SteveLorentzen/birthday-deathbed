@@ -1,4 +1,4 @@
-import { keyframes } from '@emotion/react';
+import { keyframes } from "@emotion/react";
 
 function PageTitle({ title }: { title: string }) {
   const bounce = keyframes`
@@ -16,13 +16,16 @@ function PageTitle({ title }: { title: string }) {
   return (
     <div
       css={{
-        display: 'flex',
-        justifyContent: 'center',
-        margin: '5rem 0',
+        display: "flex",
+        textAlign: "center",
+        justifyContent: "center",
+        margin: "5rem 0",
         animation: `${bounce} 1s ease`,
       }}
     >
-      <h1 css={{ fontSize: '4.5rem', fontWeight: 'normal' }}>{title}</h1>
+      <h1 css={{ fontSize: "var(--font-3xl)", fontWeight: "normal" }}>
+        {title}
+      </h1>
     </div>
   );
 }

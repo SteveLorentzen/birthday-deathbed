@@ -1,7 +1,7 @@
-import { PageTitle } from 'components/page-title';
-import { mq } from 'my-constants';
-import React from 'react';
-import styled from '@emotion/styled';
+import { PageTitle } from "components/page-title";
+import { mq } from "my-constants";
+import React from "react";
+import styled from "@emotion/styled";
 
 function Contact() {
   // function handleSubmit(e: React.SyntheticEvent) {
@@ -17,21 +17,31 @@ function Contact() {
 
   return (
     <div>
-      <PageTitle title='Contact' />
+      {/* <PageTitle title="Contact" /> */}
 
       <div
         css={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          marginTop: "7rem",
         }}
       >
-        <h2 css={{ fontSize: '1.2rem' }}>For booking and other inquiries:</h2>
+        <h2
+          css={{
+            fontSize: "var(--font-xsm)",
+            [mq[1]]: { fontSize: "var(--font-small)" },
+            [mq[2]]: { fontSize: "var(--font-small)" },
+          }}
+        >
+          For booking and other inquiries:
+        </h2>
         <h3
           css={{
-            fontSize: '1.6rem',
-            marginTop: '2rem',
-            [mq[0]]: { fontSize: '3rem' },
+            fontSize: "var(--font-small)",
+            marginTop: "2rem",
+            [mq[0]]: { fontSize: "var(--font-medium)" },
+            [mq[1]]: { fontSize: "var(--font-large)" },
           }}
         >
           bdayDeathbed@gmail.com

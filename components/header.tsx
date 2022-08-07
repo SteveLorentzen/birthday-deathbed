@@ -45,7 +45,6 @@ function Header() {
       >
         <div
           css={{
-            fontSize: "1.6rem",
             transform: "translateY(.25rem)",
             transition: "all .1s ease-in",
             "&:hover": {
@@ -89,7 +88,7 @@ function Header() {
             "li:not(:last-child)": {
               marginRight: "4rem",
             },
-            [mq[0]]: {
+            [mq[1]]: {
               display: "flex",
             },
           }}
@@ -112,7 +111,7 @@ function Header() {
                 }}
               >
                 <Link href={navLink.path}>
-                  <a css={{ fontSize: "1.3rem", cursor: "pointer" }}>
+                  <a css={{ fontSize: "var(--font-small)", cursor: "pointer" }}>
                     {navLink.name}
                   </a>
                 </Link>
@@ -168,7 +167,7 @@ function Header() {
                 >
                   <Link href={navLink.path}>
                     <a
-                      css={{ fontSize: "3rem", cursor: "pointer" }}
+                      css={{ fontSize: "var(--font-large)", cursor: "pointer" }}
                       onClick={() => setMenuIsOpen(false)}
                     >
                       {navLink.name}
