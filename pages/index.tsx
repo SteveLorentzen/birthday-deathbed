@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { mq } from "my-constants";
+import { mediaQueries } from "my-constants";
 import { Performances } from "components/performances";
 
 function Home() {
@@ -8,30 +8,26 @@ function Home() {
       css={{
         display: "flex",
         justifyContent: "center",
-        padding: "3rem",
       }}
     >
       <div
         css={{
           display: "flex",
+          width: "100%",
           flexDirection: "column",
           alignItems: "center",
-          maxWidth: "var(--home-maxWidth)",
-          "& > div": {
-            marginBottom: "5rem",
-          },
-          [mq[0]]: {
-            "& > div": {
-              marginBottom: "10rem",
-            },
-          },
         }}
       >
         <div
           css={{
             display: "flex",
+            width: "100%",
             flexDirection: "column",
             alignItems: "center",
+            margin: "12rem 0",
+            [mediaQueries.xl]: {
+              margin: "14rem 0",
+            },
           }}
         >
           <div>
@@ -48,7 +44,7 @@ function Home() {
             css={{
               fontSize: "var(--font-small)",
               textAlign: "center",
-              [mq[2]]: { fontSize: "var(--font-medium)" },
+              [mediaQueries.medium]: { fontSize: "var(--font-medium)" },
             }}
           >
             A{" "}
@@ -57,8 +53,8 @@ function Home() {
                 fontSize: "var(--font-medium)",
                 whiteSpace: "nowrap",
                 fontStyle: "italic",
-                [mq[0]]: { fontSize: "var(--font-large)" },
-                [mq[1]]: { fontSize: "var(--font-xl)" },
+                [mediaQueries.xs]: { fontSize: "var(--font-large)" },
+                [mediaQueries.medium]: { fontSize: "var(--font-xl)" },
                 // color: "var(--color-red-dark)",
               }}
             >
@@ -70,26 +66,37 @@ function Home() {
         <div
           css={{
             display: "flex",
-            flexDirection: "column",
             justifyContent: "center",
+            backgroundColor: "var(--color-accent-very-dark)",
+            width: "100%",
+            padding: "8rem 0",
           }}
         >
-          <iframe
+          <div
             css={{
-              width: "var(--home-width)",
-              height: "var(--home-height)",
-              maxWidth: "var(--home-max-width)",
-              maxHeight: "var(--home-max-height)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
             }}
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/t2JWFUOQ3Xg"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+          >
+            <iframe
+              css={{
+                width: "var(--home-width)",
+                height: "var(--home-height)",
+                maxWidth: "var(--home-max-width)",
+                maxHeight: "var(--home-max-height)",
+              }}
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/t2JWFUOQ3Xg"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
+
         <div css={{ maxWidth: "var(--home-max-width)", width: "100%" }}>
           <h3
             css={{
@@ -105,6 +112,7 @@ function Home() {
             display: "flex",
             flex: "1",
             flexDirection: "column",
+            marginBottom: "12rem",
           }}
         >
           <div>

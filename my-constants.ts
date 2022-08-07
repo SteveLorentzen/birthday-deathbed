@@ -1,5 +1,7 @@
-const breakpoints = [325, 576, 768, 992, 1200];
-
-export const mq: string[] = breakpoints.map(
-  (bp) => `@media (min-width: ${bp}px)`
-);
+export const mediaQueries = {
+  xs: "@media (min-width: 325px)",
+  small: "@media (min-width: 576px)",
+  medium: "@media (min-width: 768px)",
+  large: "@media (min-width: 992px)",
+  xl: "@media (min-width: 1200px)",
+};

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PageTitle } from "../components/page-title";
-import { mq } from "my-constants";
+import { mediaQueries } from "my-constants";
 
 const bandMembers = [
   {
@@ -59,7 +59,10 @@ function BandMember({
   role: string;
 }) {
   return (
-    <div className="band-member">
+    <div
+      className="band-member"
+      css={{ [mediaQueries.xs]: { padding: "1.5rem" } }}
+    >
       <div
         css={{
           position: "relative",
@@ -73,44 +76,48 @@ function BandMember({
           objectFit="contain"
         />
       </div>
-
-      <div
-        css={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-          margin: "2rem 0",
-          [mq[1]]: { flexDirection: "row", alignItems: "flex-end" },
-        }}
-      >
-        <h2
+      <div css={{ padding: "1rem" }}>
+        <div
           css={{
-            fontSize: "var(--font-large)",
-            fontWeight: "normal",
-            letterSpacing: ".15rem",
-            lineHeight: "2.75rem",
-            [mq[1]]: {
-              linHeight: "2.25rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            margin: "2rem 0",
+            [mediaQueries.small]: {
+              flexDirection: "row",
+              alignItems: "flex-end",
             },
           }}
         >
-          {name}
-        </h2>
-        <h3
-          css={{
-            fontSize: "var(--font-small)",
-            textTransform: "uppercase",
-            letterSpacing: ".15rem",
-            marginTop: ".5rem",
-            color: "var(--color-red-dark)",
-            [mq[1]]: { marginLeft: "1rem" },
-          }}
-        >
-          {role}
-        </h3>
+          <h2
+            css={{
+              fontSize: "var(--font-large)",
+              fontWeight: "normal",
+              letterSpacing: ".15rem",
+              lineHeight: "2.75rem",
+              [mediaQueries.small]: {
+                linHeight: "2.25rem",
+              },
+            }}
+          >
+            {name}
+          </h2>
+          <h3
+            css={{
+              fontSize: "var(--font-small)",
+              fontWeight: "normal",
+              textTransform: "uppercase",
+              letterSpacing: ".15rem",
+              marginTop: "1rem",
+              color: "var(--color-red-dark)",
+              [mediaQueries.small]: { marginLeft: "1rem" },
+            }}
+          >
+            {role}
+          </h3>
+        </div>
+        <p css={{ fontSize: "var(--font-small)" }}>{description}</p>
       </div>
-
-      <p css={{ fontSize: "var(--font-small)" }}>{description}</p>
     </div>
   );
 }
