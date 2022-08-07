@@ -4,27 +4,14 @@ import React from "react";
 import styled from "@emotion/styled";
 
 function Contact() {
-  // function handleSubmit(e: React.SyntheticEvent) {
-  //   e.preventDefault();
-  // }
-
-  // const inputCss = {
-  //   padding: '1rem',
-  //   borderRadius: '5px',
-  //   border: '1px solid black',
-  //   fontSize: '1.5rem',
-  // };
-
   return (
     <div>
-      {/* <PageTitle title="Contact" /> */}
-
       <div
         css={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          marginTop: "7rem",
+          paddingTop: "8rem",
         }}
       >
         <h2
@@ -44,7 +31,7 @@ function Contact() {
             [mediaQueries.small]: { fontSize: "var(--font-large)" },
           }}
         >
-          bdayDeathbed@gmail.com
+          BdayDeathbed@gmail.com
         </h3>
       </div>
 

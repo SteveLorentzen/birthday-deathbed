@@ -14,8 +14,10 @@ a {
   margin: 0;
   font-size: 11px;
 
-  --color-orange: hsl(28, 96%, 72%);
-  --color-orange-dark: hsl(28, 93%, 40%);
+  --color-grey-light: rgb(225, 223, 223);
+  --color-accent: hsl(0, 92%, 85%);
+  --color-accent-dark: hsl(0, 61%, 21%);
+  --color-accent-very-dark: hsl(0, 75%, 14%);
   --color-red-dark: hsl(0, 61%, 21%);
 
   --home-width: 90vw;
@@ -26,7 +28,7 @@ a {
 
   --home-max-height: calc(90rem * 0.5625);
 
-  --footer-height: 14rem;
+  --footer-height: 16rem;
 
   --header-height: 6rem;
 

@@ -107,12 +107,12 @@ function Header() {
                   fontWeight: "lighter",
                   color:
                     navLink.path === router.pathname
-                      ? "var(--color-orange)"
+                      ? "var(--color-accent)"
                       : "white",
                   textDecoration:
                     navLink.path === router.pathname ? "underline" : "",
                   "a:active, a:hover": {
-                    color: "var(--color-orange)",
+                    color: "var(--color-accent)",
                   },
                 }}
               >
@@ -162,12 +162,12 @@ function Header() {
                   css={{
                     color:
                       navLink.path === router.pathname
-                        ? "var(--color-orange)"
+                        ? "var(--color-accent)"
                         : "white",
                     textDecoration:
                       navLink.path === router.pathname ? "underline" : "",
                     "a:active, a:hover": {
-                      color: "var(--color-orange)",
+                      color: "var(--color-accent)",
                     },
                   }}
                 >

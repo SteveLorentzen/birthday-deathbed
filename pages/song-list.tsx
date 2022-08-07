@@ -35,17 +35,23 @@ function SongList() {
         css={{
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          "p:not(:last-child)": {
-            marginBottom: "3rem",
-          },
+          alignItems: "stretch",
+          // "p:not(:last-child)": {
+          //   marginBottom: "3rem",
+          // },
           marginBottom: "12rem",
         }}
       >
-        {songList.map((song) => {
+        {songList.map((song, index) => {
           return (
             <p
-              css={{ fontSize: "var(--font-large)", textAlign: "center" }}
+              css={{
+                fontSize: "var(--font-medium)",
+                textAlign: "center",
+                backgroundColor:
+                  index % 2 === 0 ? "var(--color-grey-light)" : "",
+                padding: "2rem",
+              }}
               key={song}
             >
               {song}
