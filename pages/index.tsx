@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { mq } from "my-constants";
+import { mediaQueries } from "my-constants";
 import { Performances } from "components/performances";
 
 function Home() {
@@ -20,7 +20,7 @@ function Home() {
           "& > div": {
             marginBottom: "5rem",
           },
-          [mq[0]]: {
+          [mediaQueries.xs]: {
             "& > div": {
               marginBottom: "10rem",
             },
@@ -48,7 +48,7 @@ function Home() {
             css={{
               fontSize: "var(--font-small)",
               textAlign: "center",
-              [mq[2]]: { fontSize: "var(--font-medium)" },
+              [mediaQueries.medium]: { fontSize: "var(--font-medium)" },
             }}
           >
             A{" "}
@@ -57,8 +57,8 @@ function Home() {
                 fontSize: "var(--font-medium)",
                 whiteSpace: "nowrap",
                 fontStyle: "italic",
-                [mq[0]]: { fontSize: "var(--font-large)" },
-                [mq[1]]: { fontSize: "var(--font-xl)" },
+                [mediaQueries.xs]: { fontSize: "var(--font-large)" },
+                [mediaQueries.medium]: { fontSize: "var(--font-xl)" },
                 // color: "var(--color-red-dark)",
               }}
             >

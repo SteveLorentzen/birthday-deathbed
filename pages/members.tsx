@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PageTitle } from "../components/page-title";
-import { mq } from "my-constants";
+import { mediaQueries } from "my-constants";
 
 const bandMembers = [
   {
@@ -80,7 +80,10 @@ function BandMember({
           flexDirection: "column",
           alignItems: "flex-start",
           margin: "2rem 0",
-          [mq[1]]: { flexDirection: "row", alignItems: "flex-end" },
+          [mediaQueries.small]: {
+            flexDirection: "row",
+            alignItems: "flex-end",
+          },
         }}
       >
         <h2
@@ -89,7 +92,7 @@ function BandMember({
             fontWeight: "normal",
             letterSpacing: ".15rem",
             lineHeight: "2.75rem",
-            [mq[1]]: {
+            [mediaQueries.small]: {
               linHeight: "2.25rem",
             },
           }}
@@ -103,7 +106,7 @@ function BandMember({
             letterSpacing: ".15rem",
             marginTop: ".5rem",
             color: "var(--color-red-dark)",
-            [mq[1]]: { marginLeft: "1rem" },
+            [mediaQueries.small]: { marginLeft: "1rem" },
           }}
         >
           {role}

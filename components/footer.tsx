@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { mq } from "my-constants";
+import { mediaQueries } from "my-constants";
 
 function Footer() {
   return (
@@ -25,10 +25,10 @@ function Footer() {
             justifyContent: "space-between",
             marginTop: "1rem",
             width: "10rem",
-            [mq[2]]: {
+            [mediaQueries.large]: {
               width: "9rem",
             },
-            [mq[3]]: {
+            [mediaQueries.xl]: {
               width: "8rem",
             },
           }}

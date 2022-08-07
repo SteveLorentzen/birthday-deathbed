@@ -1,5 +1,5 @@
 import { PageTitle } from "components/page-title";
-import { mq } from "my-constants";
+import { mediaQueries } from "my-constants";
 import React from "react";
 import styled from "@emotion/styled";
 
@@ -30,8 +30,8 @@ function Contact() {
         <h2
           css={{
             fontSize: "var(--font-xsm)",
-            [mq[1]]: { fontSize: "var(--font-small)" },
-            [mq[2]]: { fontSize: "var(--font-small)" },
+            [mediaQueries.xs]: { fontSize: "var(--font-small)" },
+            [mediaQueries.small]: { fontSize: "var(--font-small)" },
           }}
         >
           For booking and other inquiries:
@@ -40,8 +40,8 @@ function Contact() {
           css={{
             fontSize: "var(--font-small)",
             marginTop: "2rem",
-            [mq[0]]: { fontSize: "var(--font-medium)" },
-            [mq[1]]: { fontSize: "var(--font-large)" },
+            [mediaQueries.xs]: { fontSize: "var(--font-medium)" },
+            [mediaQueries.small]: { fontSize: "var(--font-large)" },
           }}
         >
           bdayDeathbed@gmail.com

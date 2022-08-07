@@ -2,7 +2,7 @@ import Link from "next/link";
 import * as React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { mq } from "my-constants";
+import { mediaQueries } from "my-constants";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { keyframes } from "@emotion/react";
 
@@ -68,14 +68,20 @@ function Header() {
           <AiOutlineMenu
             color="white"
             size={34}
-            css={{ cursor: "pointer", [mq[0]]: { display: "none" } }}
+            css={{
+              cursor: "pointer",
+              [mediaQueries.small]: { display: "none" },
+            }}
             onClick={() => setMenuIsOpen(true)}
           />
         ) : (
           <AiOutlineClose
             color="white"
             size={34}
-            css={{ cursor: "pointer", [mq[0]]: { display: "none" } }}
+            css={{
+              cursor: "pointer",
+              [mediaQueries.small]: { display: "none" },
+            }}
             onClick={() => setMenuIsOpen(false)}
           />
         )}
@@ -88,7 +94,7 @@ function Header() {
             "li:not(:last-child)": {
               marginRight: "4rem",
             },
-            [mq[1]]: {
+            [mediaQueries.small]: {
               display: "flex",
             },
           }}
