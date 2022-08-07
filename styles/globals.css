@@ -12,9 +12,11 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-size: 12px;
+  font-size: 11px;
 
-  --main-color: black;
+  --color-orange: hsl(28, 96%, 72%);
+  --color-orange-dark: hsl(28, 93%, 40%);
+  --color-red-dark: hsl(0, 61%, 21%);
 
   --home-width: 90vw;
 
@@ -23,6 +25,23 @@ a {
   --home-max-width: 90rem;
 
   --home-max-height: calc(90rem * 0.5625);
+
+  --footer-height: 14rem;
+
+  --header-height: 6rem;
+
+  --main-content-min-height: calc(
+    (100vh - var(--footer-height)) - var(--header-height)
+  );
+
+  --font-xsm: 1.2rem;
+  --font-small: 1.4rem;
+  --font-medium: 2.2rem;
+  --font-large: 3rem;
+  --font-xl: 3.8rem;
+  --font-2xl: 4.6rem;
+  --font-3xl: 5.4rem;
+  --font-4xl: 6.4rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,6 +51,12 @@ a {
   body {
     color: white;
     background: black;
+  }
+}
+
+@media (min-width: var(--font-xsm)) {
+  * {
+    font-size: 12px;
   }
 }
 
