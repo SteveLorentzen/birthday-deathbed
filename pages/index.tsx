@@ -59,8 +59,8 @@ function Home() {
             <h1>
               <Image
                 src='/images/BirthdayDeathbedLogo_Sm.png'
-                width='600'
-                height='300'
+                width='840'
+                height='420'
                 alt='Birthday Deathbed'
               ></Image>
             </h1>
