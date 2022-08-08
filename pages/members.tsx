@@ -1,47 +1,47 @@
-import Image from "next/image";
-import { PageTitle } from "../components/page-title";
-import { mediaQueries } from "my-constants";
+import Image from 'next/image';
+import { PageTitle } from '../components/page-title';
+import { mediaQueries } from 'my-constants';
 
 const bandMembers = [
   {
-    name: "Steve Pedersen",
-    role: "Lead Vocals",
+    name: 'Steve Pedersen',
+    role: 'Lead Vocals',
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.",
-    pic: "/images/steve_p_birthday_deathbed.jpg",
-    altText: "Lead singer Steve Pedersen",
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+    pic: '/images/steve_p_birthday_deathbed.jpg',
+    altText: 'Lead singer Steve Pedersen',
   },
   {
-    name: "Damien Smith",
-    role: "Lead Guitar",
+    name: 'Damien Smith',
+    role: 'Lead Guitar',
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.",
-    pic: "/images/damien_birthday_deathbed.jpg",
-    altText: "Lead guitarist Damien Smith",
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+    pic: '/images/damien_birthday_deathbed.jpg',
+    altText: 'Lead guitarist Damien Smith',
   },
   {
-    name: "Steve Lorentzen",
-    role: "Rhythm Guitar",
+    name: 'Steve Lorentzen',
+    role: 'Rhythm Guitar',
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.",
-    pic: "/images/steve_l_birthday_deathbed.jpg",
-    altText: "Rhythm guitarist Steve Lorentzen",
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+    pic: '/images/steve_l_birthday_deathbed.jpg',
+    altText: 'Rhythm guitarist Steve Lorentzen',
   },
   {
-    name: "Erik MacPherson",
-    role: "Bass",
+    name: 'Erik MacPherson',
+    role: 'Bass',
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.",
-    pic: "/images/erik_birthday_deathbed.jpg",
-    altText: "Bassist Erik MacPherson",
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+    pic: '/images/erik_birthday_deathbed.jpg',
+    altText: 'Bassist Erik MacPherson',
   },
   {
-    name: "Sean Rainey",
-    role: "Drums",
+    name: 'Sean Rainey',
+    role: 'Drums',
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.",
-    pic: "/images/sean_birthday_deathbed.jpg",
-    altText: "Drummer Sean Rainey",
+      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+    pic: '/images/sean_birthday_deathbed.jpg',
+    altText: 'Drummer Sean Rainey',
   },
 ];
 
@@ -60,12 +60,12 @@ function BandMember({
 }) {
   return (
     <div
-      className="band-member"
-      css={{ [mediaQueries.xs]: { padding: "1.5rem" } }}
+      className='band-member'
+      css={{ [mediaQueries.xs]: { padding: '1.5rem' } }}
     >
       <div
         css={{
-          position: "relative",
+          position: 'relative',
         }}
       >
         <Image
@@ -73,30 +73,31 @@ function BandMember({
           height={750}
           src={pic}
           alt={altText}
-          objectFit="contain"
+          priority={name === 'Steve Pedersen'}
+          objectFit='contain'
         />
       </div>
-      <div css={{ padding: "1rem" }}>
+      <div css={{ padding: '1rem' }}>
         <div
           css={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            margin: "2rem 0",
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            margin: '2rem 0',
             [mediaQueries.small]: {
-              flexDirection: "row",
-              alignItems: "flex-end",
+              flexDirection: 'row',
+              alignItems: 'flex-end',
             },
           }}
         >
           <h2
             css={{
-              fontSize: "var(--font-large)",
-              fontWeight: "normal",
-              letterSpacing: ".15rem",
-              lineHeight: "2.75rem",
+              fontSize: 'var(--font-large)',
+              fontWeight: 'normal',
+              letterSpacing: '.15rem',
+              lineHeight: '2.75rem',
               [mediaQueries.small]: {
-                linHeight: "2.25rem",
+                linHeight: '2.25rem',
               },
             }}
           >
@@ -104,19 +105,19 @@ function BandMember({
           </h2>
           <h3
             css={{
-              fontSize: "var(--font-small)",
-              fontWeight: "normal",
-              textTransform: "uppercase",
-              letterSpacing: ".15rem",
-              marginTop: "1rem",
-              color: "var(--color-red-dark)",
-              [mediaQueries.small]: { marginLeft: "1rem" },
+              fontSize: 'var(--font-small)',
+              fontWeight: 'normal',
+              textTransform: 'uppercase',
+              letterSpacing: '.15rem',
+              marginTop: '1rem',
+              color: 'var(--color-red-dark)',
+              [mediaQueries.small]: { marginLeft: '1rem' },
             }}
           >
             {role}
           </h3>
         </div>
-        <p css={{ fontSize: "var(--font-small)" }}>{description}</p>
+        <p css={{ fontSize: 'var(--font-small)' }}>{description}</p>
       </div>
     </div>
   );
@@ -126,14 +127,14 @@ function Members() {
   return (
     <div
       css={{
-        maxWidth: "50rem",
-        margin: "0 auto 16rem auto",
-        ".band-member:not(:last-child)": {
-          marginBottom: "10rem",
+        maxWidth: '50rem',
+        margin: '0 auto 16rem auto',
+        '.band-member:not(:last-child)': {
+          marginBottom: '10rem',
         },
       }}
     >
-      <PageTitle title="Members" />
+      <PageTitle title='Members' />
       {bandMembers.map((bandMember) => {
         return (
           <BandMember
