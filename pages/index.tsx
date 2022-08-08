@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { mediaQueries } from 'my-constants';
 import { Performances } from 'components/performances';
 import { fadeup } from 'animations';
+import { url } from 'inspector';
 
 function Home() {
   React.useEffect(() => {
@@ -30,57 +31,26 @@ function Home() {
           width: '100%',
           flexDirection: 'column',
           alignItems: 'center',
+          position: 'relative',
         }}
       >
         <div
           css={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            zIndex: '-1',
-          }}
-        >
-          <div
-            css={{
-              position: 'absolute',
-              height: '100%',
-              width: '100%',
-              backgroundColor: 'rgba(86, 21, 21, 0.7)',
-              zIndex: 1,
-            }}
-          ></div>
-          <div css={{ position: 'relative', height: '100%', width: '100%' }}>
-            <Image
-              src='/images/birthday_deathbed_3.jpg'
-              alt='the boys of birthday deathbed'
-              layout='fill'
-              objectFit='cover'
-              objectPosition='center'
-            ></Image>
-          </div>
-        </div>
-        <div
-          css={{
             display: 'flex',
+            position: 'relative',
             width: '100%',
             height: '100%',
-            backgroundImage: '/images/birthday_deathbed_3.jpg',
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '0 1rem',
-            opacity: 0.7,
+            padding: '10rem 1rem',
             [mediaQueries.medium]: {
-              padding: '8rem 0',
+              padding: '14rem 1rem',
             },
             [mediaQueries.large]: {
-              padding: '9rem 0',
-            },
-
-            [mediaQueries.xxl]: {
-              padding: '11rem 0',
+              padding: '9rem 1rem',
             },
             [mediaQueries.xxxl]: {
-              padding: '16rem 0',
+              padding: '14rem 1rem',
             },
           }}
         >
@@ -88,8 +58,8 @@ function Home() {
             <h1>
               <Image
                 src='/images/BirthdayDeathbedLogo_Sm.png'
-                width='840'
-                height='420'
+                width='600'
+                height='300'
                 alt='Birthday Deathbed'
               ></Image>
             </h1>
@@ -99,6 +69,7 @@ function Home() {
               fontSize: 'var(--font-small)',
               textAlign: 'center',
               padding: '1rem',
+              zIndex: 1,
               [mediaQueries.medium]: { fontSize: 'var(--font-medium)' },
             }}
           >
@@ -110,7 +81,6 @@ function Home() {
                 fontStyle: 'italic',
                 [mediaQueries.xs]: { fontSize: 'var(--font-large)' },
                 [mediaQueries.medium]: { fontSize: 'var(--font-xl)' },
-                // color: "var(--color-red-dark)",
               }}
             >
               Stone Temple Pilots
@@ -123,23 +93,11 @@ function Home() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: 'var(--color-accent-very-dark)',
+            backgroundColor: 'var(--color-accent-dark)',
             width: '100%',
-            paddingBottom: '8rem',
+            padding: '6rem 0',
           }}
         >
-          <div>
-            <h2
-              css={{
-                color: 'white',
-                fontSize: 'var(--font-medium)',
-                fontWeight: 'normal',
-                padding: '4rem',
-              }}
-            >
-              Promo Video
-            </h2>
-          </div>
           <div
             css={{
               display: 'flex',
@@ -181,6 +139,7 @@ function Home() {
             display: 'flex',
             flex: '1',
             flexDirection: 'column',
+            marginTop: '6rem',
             marginBottom: '12rem',
           }}
         >

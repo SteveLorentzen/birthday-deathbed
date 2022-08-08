@@ -16,6 +16,7 @@ a {
 
   --color-grey-light: rgb(225, 223, 223);
   --color-accent: hsl(0, 92%, 85%);
+  --color-accent-light: rgb(249, 225, 225);
   --color-accent-dark: hsl(0, 61%, 21%);
   --color-accent-very-dark: hsl(0, 75%, 14%);
   --color-red-dark: hsl(0, 61%, 21%);
