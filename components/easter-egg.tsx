@@ -23,7 +23,7 @@ function EasterEgg() {
           position: 'fixed',
           bottom: 0,
           right: 0,
-          width: '80px',
+          width: '5%',
           height: '80px',
         }}
         onClick={() => {

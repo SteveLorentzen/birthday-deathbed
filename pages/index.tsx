@@ -34,24 +34,53 @@ function Home() {
       >
         <div
           css={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            zIndex: '-1',
+          }}
+        >
+          <div
+            css={{
+              position: 'absolute',
+              height: '100%',
+              width: '100%',
+              backgroundColor: 'rgba(86, 21, 21, 0.7)',
+              zIndex: 1,
+            }}
+          ></div>
+          <div css={{ position: 'relative', height: '100%', width: '100%' }}>
+            <Image
+              src='/images/birthday_deathbed_3.jpg'
+              alt='the boys of birthday deathbed'
+              layout='fill'
+              objectFit='cover'
+              objectPosition='center'
+            ></Image>
+          </div>
+        </div>
+        <div
+          css={{
             display: 'flex',
             width: '100%',
+            height: '100%',
+            backgroundImage: '/images/birthday_deathbed_3.jpg',
             flexDirection: 'column',
             alignItems: 'center',
-            margin: '7rem 0',
             padding: '0 1rem',
+            opacity: 0.7,
             [mediaQueries.medium]: {
-              margin: '8rem 0',
+              padding: '8rem 0',
             },
             [mediaQueries.large]: {
-              margin: '9rem 0',
+              padding: '9rem 0',
             },
 
             [mediaQueries.xxl]: {
-              margin: '11rem 0',
+              padding: '11rem 0',
             },
             [mediaQueries.xxxl]: {
-              margin: '16rem 0',
+              padding: '16rem 0',
             },
           }}
         >
