@@ -17,6 +17,7 @@ function Contact() {
         <h2
           css={{
             fontSize: 'var(--font-xsm)',
+            textAlign: 'center',
             [mediaQueries.xs]: { fontSize: 'var(--font-small)' },
             [mediaQueries.small]: { fontSize: 'var(--font-small)' },
           }}
