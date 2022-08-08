@@ -58,7 +58,7 @@ function Home() {
           <div css={{ animation: `${fadeup} 1s ease` }}>
             <h1>
               <Image
-                src='/images/BirthdayDeathbedLogo_Md.png'
+                src='/images/BirthdayDeathbedLogo_Sm.png'
                 width='600'
                 height='300'
                 alt='Birthday Deathbed'
