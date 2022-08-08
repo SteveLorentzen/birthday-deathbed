@@ -85,3 +85,11 @@ a {
     font-size: 16px;
   }
 }
+
+.no-highlight {
+  -html-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
