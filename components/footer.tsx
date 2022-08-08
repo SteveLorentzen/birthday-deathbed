@@ -28,9 +28,6 @@ function Footer() {
             [mediaQueries.large]: {
               width: '10rem',
             },
-            //     [mediaQueries.xl]: {
-            //       width: '14rem',
-            //     },
           }}
         >
           <Link href='http://www.instagram.com/dickthecitizen'>
