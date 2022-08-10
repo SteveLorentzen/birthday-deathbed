@@ -1,5 +1,7 @@
 import { mediaQueries } from 'my-constants';
 import { format } from 'date-fns';
+import Link from 'next/link';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 interface IPerformance {
   venue: String;
@@ -10,18 +12,21 @@ interface IPerformance {
   endTime: String;
   description: String;
   price: Number;
+  eventUrl: string;
 }
 
 const performances = [
   {
     venue: 'Rock & Brews at Yaamava',
-    addressStreet: 'Highland Ave.',
-    addressCityState: 'Highland, CA',
+    addressStreet: '777 San Manuel Blvd.',
+    addressCityState: 'Highland, CA 92346',
     date: format(new Date(2022, 9, 4), 'EE, LLL do, yyyy'),
     startTime: '7:00pm',
     endTime: '10:00pm',
     description: 'Come have a tasty dinner while we rock your faces off!',
     price: 0,
+    eventUrl:
+      'https://bandsintown.com/e/103679759?utm_medium=web&utm_source=jump_page&utm_campaign=share_event&came_from=702',
   },
 ];
 
@@ -29,65 +34,108 @@ function Performance({ performance }: { performance: IPerformance }) {
   return (
     <div
       css={{
-        display: 'flex',
-        flexDirection: 'column',
-        padding: '2rem 0 2rem 2rem',
+        display: 'grid',
+        gridTemplate: `"event  event event  "
+                       "event  event event  " 
+                       "street street street "
+                       "city   city city   " 
+                       "date   date date   "
+                       "time   time price  "`,
+
+        gridTemplateRows: '2fr 1fr  1fr 2fr 2fr 1fr',
+        gridTemplateColumns: '1fr 1fr 1fr',
         width: '100%',
         borderTop: '1px solid grey',
         borderBottom: '1px solid grey',
+        padding: '2rem 1rem',
+        [mediaQueries.small]: {
+          gridTemplate: `"event  event  event  event    " 
+                         "street street street  price"
+                         "city   city   city .    " 
+                         "date   date   time   time "`,
 
-        [mediaQueries.medium]: {
-          flexDirection: 'row',
-          justifyContent: 'space-between',
+          gridTemplateRows: '2fr 1fr  2fr 1fr',
+          gridTemplateColumns: '1fr 1fr 1fr 1fr',
         },
       }}
     >
       <div
         css={{
           display: 'flex',
-          width: '100%',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
+          gridArea: 'event',
+          marginRight: '2rem',
         }}
       >
-        <div
-          css={{
-            fontSize: 'var(--font-medium)',
-            color: 'var(--color-accent-dark)',
-            fontWeight: 'bolder',
-          }}
-        >
-          {performance.venue}
-        </div>
-        <div css={{ fontSize: 'var(--font-medium)', padding: '1rem 0' }}>
-          {performance.addressStreet}
-        </div>
-        <div css={{ fontSize: 'var(--font-medium)' }}>
-          {performance.addressCityState}
-        </div>
+        <Link href={performance.eventUrl} passHref>
+          <a
+            css={{
+              position: 'relative',
+              lineHeight: '.9',
+              fontSize: 'var(--font-medium)',
+              color: 'var(--color-accent-dark)',
+              fontWeight: 'bolder',
+              cursor: 'pointer',
+              ':hover': {
+                color: 'var(--color-accent-dark-hover)',
+              },
+            }}
+          >
+            {performance.venue}
+            <span
+              css={{
+                position: 'absolute',
+                marginLeft: '1rem',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              <FaExternalLinkAlt />
+            </span>
+          </a>
+        </Link>
       </div>
       <div
         css={{
-          display: 'flex',
-          width: '35%',
-          minWidth: '21rem',
-          flexDirection: 'column',
+          fontSize: 'var(--font-small)',
+          gridArea: 'street',
         }}
       >
-        <div css={{ fontSize: 'var(--font-medium)' }}>{performance.date}</div>
-        <div
-          css={{ fontSize: 'var(--font-medium)', marginTop: '1rem' }}
-        >{`${performance.startTime} - ${performance.endTime}`}</div>
-        <div
-          css={{
-            fontSize: 'var(--font-medium)',
-            fontWeight: 'bold',
-            marginTop: '1rem',
-          }}
-        >
-          {performance.price === 0 ? 'Free' : `$${performance.price}`}
-        </div>
+        {performance.addressStreet}
+      </div>
+      <div css={{ fontSize: 'var(--font-small)', gridArea: 'city' }}>
+        {performance.addressCityState}
+      </div>
+
+      <div
+        css={{
+          fontSize: 'var(--font-small)',
+          textTransform: 'uppercase',
+          fontWeight: 'bold',
+          gridArea: 'date',
+        }}
+      >
+        {performance.date}
+      </div>
+      <div
+        css={{
+          fontSize: 'var(--font-small)',
+          fontWeight: 'bold',
+          gridArea: 'time',
+
+          textAlign: 'left',
+          [mediaQueries.small]: {
+            textAlign: 'right',
+          },
+        }}
+      >{`${performance.startTime} - ${performance.endTime}`}</div>
+      <div
+        css={{
+          fontSize: 'var(--font-small)',
+          gridArea: 'price',
+          textAlign: 'right',
+          color: 'var(--color-grey-medium)',
+        }}
+      >
+        {performance.price === 0 ? 'Free' : `$${performance.price}`}
       </div>
     </div>
   );
@@ -101,24 +149,25 @@ function Performances() {
         flexDirection: 'column',
         alignItems: 'center',
         width: 'var(--home-width)',
-        maxWidth: 'var(--home-max-width)',
+        maxWidth: '60rem',
         margin: '6rem 0',
       }}
     >
       <div>
         <h1
           css={{
-            fontSize: 'var(--font-large)',
-            padding: '1rem',
-            fontWeight: 'lighter',
+            fontSize: 'var(--font-medium)',
+            textTransform: 'uppercase',
+            fontWeight: 'bold',
             textAlign: 'center',
+            padding: '2rem 1rem',
             [mediaQueries.small]: {
-              padding: '2rem',
-              fontSize: 'var(--font-xl)',
+              fontWeight: 'normal',
+              fontSize: 'var(--font-large)',
             },
           }}
         >
-          Upcoming Performances
+          Upcoming Shows
         </h1>
       </div>
       <div

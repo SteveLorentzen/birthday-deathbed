@@ -7,7 +7,7 @@ const bandMembers = [
     name: 'Steve Pedersen',
     role: 'Lead Vocals',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+      'Steve brings unparalleled energy and style to every performance.  His ability to recreate the styles of many different singers while still having his own voice makes him truly remarkable.',
     pic: '/images/steve_p_birthday_deathbed.jpg',
     altText: 'Lead singer Steve Pedersen',
   },
@@ -15,7 +15,7 @@ const bandMembers = [
     name: 'Damien Smith',
     role: 'Lead Guitar',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+      'Damien Smith was born and raised in Long Beach and has been playing music professionally in Southern California for over 15 years. He has made a career out of being one of the most diverse and skilled players in the area.  His ability to play guitar, bass, drums and piano has opened many doors and created opportunities to share his talents. ',
     pic: '/images/damien_birthday_deathbed.jpg',
     altText: 'Lead guitarist Damien Smith',
   },
@@ -23,7 +23,7 @@ const bandMembers = [
     name: 'Steve Lorentzen',
     role: 'Rhythm Guitar',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+      "A multi-instrumentalist based out of Glendale, Steve likes to do it all.  Along with playing the guitar for Birthday Deathbed (and a very cool related 90s cover band, Dick the Citizen), Steve plays in two other groups consistently.  The first is an Irish band called Alehouse Fire, in which Steve plays banjo, mandolin and accordion.  By all accounts the man looks fine in a kilt.  The second group specializes in New Orleans jazz and funk with a family friendly vibe. It's called Jazzy Ash and the Leaping Lizards, and Steve is the drummer.  Steve also does freelance work around LA.",
     pic: '/images/steve_l_birthday_deathbed.jpg',
     altText: 'Rhythm guitarist Steve Lorentzen',
   },
@@ -31,7 +31,7 @@ const bandMembers = [
     name: 'Erik MacPherson',
     role: 'Bass',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+      'Bike mechanic, MTB instructor,Personal trainer, bass player, dog lover, Jeep fan.',
     pic: '/images/erik_birthday_deathbed.jpg',
     altText: 'Bassist Erik MacPherson',
   },
@@ -39,7 +39,7 @@ const bandMembers = [
     name: 'Sean Rainey',
     role: 'Drums',
     description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius illum fugit voluptate ducimus veniam magnam accusamus quasi commodi repellat saepe ea, non quisquam necessitatibus corporis voluptates. Odio nulla assumenda eligendi.',
+      'Sean Rainey is an LA-based drummer/percussionist who has performed and taught all across the globe. A graduate of Berklee College of Music, Sean has performed with The Aggrolites, Will Makar, Wild Roses, Dub Thief and many others and is very active in the musical theater scene in Los Angeles.',
     pic: '/images/sean_birthday_deathbed.jpg',
     altText: 'Drummer Sean Rainey',
   },
@@ -130,7 +130,7 @@ function Members() {
         maxWidth: '50rem',
         margin: '0 auto 16rem auto',
         '.band-member:not(:last-child)': {
-          marginBottom: '10rem',
+          marginBottom: '6rem',
         },
       }}
     >

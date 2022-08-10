@@ -29,7 +29,9 @@ const songList = [
 
 function SongList() {
   return (
-    <div>
+    <div
+      css={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+    >
       <PageTitle title='Song List' />
       <div
         css={{
@@ -37,6 +39,8 @@ function SongList() {
           flexDirection: 'column',
           alignItems: 'stretch',
           marginBottom: '12rem',
+          width: '100%',
+          maxWidth: 'var(--home-max-width)',
         }}
       >
         {songList.map((song, index) => {
