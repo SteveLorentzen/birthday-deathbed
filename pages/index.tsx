@@ -140,7 +140,6 @@ function Home() {
             flex: '1',
             flexDirection: 'column',
             marginTop: '6rem',
-            marginBottom: '12rem',
           }}
         >
           <div>

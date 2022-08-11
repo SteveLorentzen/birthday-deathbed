@@ -52,41 +52,51 @@ function Performance({ performance }: { performance: IPerformance }) {
   return (
     <div
       css={{
-        display: 'grid',
-        gridTemplate: `"event  event   "
-                       "city   city    " 
-                       "date   time   "`,
-
-        gridTemplateRows: '3fr 2fr 1fr ',
-        gridTemplateColumns: '1fr 1fr ',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
         width: '100%',
         borderTop: '1px solid grey',
         borderBottom: '1px solid grey',
         padding: '2rem 1rem',
-        [mediaQueries.small]: {
-          gridTemplate: `"event  event      " 
-                         "city   city   " 
-                         "date   time "`,
-
-          gridTemplateRows: '2fr 2fr 1fr ',
-          gridTemplateColumns: '1fr 1fr ',
+        'div:not(:last-child)': {
+          paddingBottom: '1rem ',
+        },
+        [mediaQueries.medium]: {
+          flexDirection: 'row',
+          alignItems: 'center',
+          'div:not(:last-child)': {
+            paddingBottom: '0',
+          },
         },
       }}
     >
       <div
         css={{
+          fontSize: 'var(--font-small)',
+          textTransform: 'uppercase',
+          fontWeight: 'bold',
+          gridArea: 'date',
+        }}
+      >
+        {format(new Date(performance.datetime), 'MMM do, yyyy')}
+      </div>
+      <div
+        css={{
           display: 'flex',
           gridArea: 'event',
-          marginRight: '2rem',
         }}
       >
         <Link href={performance.url} passHref>
           <a
             target='_blank'
             css={{
+              display: 'flex',
+              alignItems: 'center',
               position: 'relative',
               lineHeight: '.9',
-              fontSize: 'var(--font-medium)',
+              fontSize: 'var(--font-small)',
               color: 'var(--color-accent-dark)',
               fontWeight: 'bolder',
               cursor: 'pointer',
@@ -98,9 +108,7 @@ function Performance({ performance }: { performance: IPerformance }) {
             {performance.title}
             <span
               css={{
-                position: 'absolute',
                 marginLeft: '1rem',
-                whiteSpace: 'nowrap',
               }}
             >
               <FaExternalLinkAlt />
@@ -116,29 +124,6 @@ function Performance({ performance }: { performance: IPerformance }) {
       >
         {performance.venue.location}
       </div>
-
-      <div
-        css={{
-          fontSize: 'var(--font-small)',
-          textTransform: 'uppercase',
-          fontWeight: 'bold',
-          gridArea: 'date',
-        }}
-      >
-        {format(new Date(performance.datetime), 'MMM do, yyyy')}
-      </div>
-      <div
-        css={{
-          fontSize: 'var(--font-small)',
-          fontWeight: 'bold',
-          gridArea: 'time',
-
-          textAlign: 'right',
-        }}
-      >{`${format(new Date(performance.starts_at), 'K:mmbbb')}${
-        performance.ends_at &&
-        ` - ${format(new Date(performance.ends_at), 'K:mmbbb')}`
-      }`}</div>
     </div>
   );
 }
@@ -165,7 +150,7 @@ function Performances() {
         flexDirection: 'column',
         alignItems: 'center',
         width: 'var(--home-width)',
-        maxWidth: '60rem',
+        maxWidth: '70rem',
         margin: '6rem 0',
       }}
     >
@@ -179,7 +164,6 @@ function Performances() {
             padding: '2rem 1rem',
             [mediaQueries.small]: {
               fontWeight: 'normal',
-              fontSize: 'var(--font-large)',
             },
           }}
         >
