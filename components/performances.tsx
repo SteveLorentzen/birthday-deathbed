@@ -1,61 +1,75 @@
+import * as React from 'react';
 import { mediaQueries } from 'my-constants';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import { FaExternalLinkAlt } from 'react-icons/fa';
 
 interface IPerformance {
-  venue: String;
-  addressStreet: String;
-  addressCityState: String;
-  date: String;
-  startTime: String;
-  endTime: String;
-  description: String;
-  price: Number;
-  eventUrl: string;
+  artist: {
+    artist_optin_show_phone_number: boolean;
+    facebook_page_url: string;
+    id: string;
+    image_url: string;
+    links: string;
+    mbid: string;
+    name: string;
+    options: { display_listen_unit: boolean };
+    support_url: string;
+    thumb_url: string;
+    tracker_count: number;
+    tracking: string[];
+    upcoming_event_count: number;
+    url: string;
+  };
+  artist_id: string;
+  bandsintown_plus: boolean;
+  datetime: string;
+  datetime_display_rule: string;
+  description: string;
+  ends_at: string;
+  festival_datetime_display_rule: string;
+  festival_end_date: string;
+  festival_start_date: string;
+  id: string;
+  lineup: string[];
+  offers: string[];
+  on_sale_datetime: string;
+  starts_at: string;
+  title: string;
+  url: string;
+  venue: {
+    city: string;
+    country: string;
+    latitude: string;
+    location: string;
+    longitude: string;
+    name: string;
+    region: string;
+  };
 }
-
-const performances = [
-  {
-    venue: 'Rock & Brews at Yaamava',
-    addressStreet: '777 San Manuel Blvd.',
-    addressCityState: 'Highland, CA 92346',
-    date: format(new Date(2022, 9, 4), 'EE, LLL do, yyyy'),
-    startTime: '7:00pm',
-    endTime: '10:00pm',
-    description: 'Come have a tasty dinner while we rock your faces off!',
-    price: 0,
-    eventUrl:
-      'https://bandsintown.com/e/103679759?utm_medium=web&utm_source=jump_page&utm_campaign=share_event&came_from=702',
-  },
-];
 
 function Performance({ performance }: { performance: IPerformance }) {
   return (
     <div
       css={{
         display: 'grid',
-        gridTemplate: `"event  event event  "
-                       "event  event event  " 
-                       "street street street "
-                       "city   city city   " 
-                       "date   date date   "
-                       "time   time price  "`,
+        gridTemplate: `"event  event   "
+                       "city   city    " 
+                       "date   time   "`,
 
-        gridTemplateRows: '2fr 1fr  1fr 2fr 2fr 1fr',
-        gridTemplateColumns: '1fr 1fr 1fr',
+        gridTemplateRows: '3fr 2fr 1fr ',
+        gridTemplateColumns: '1fr 1fr ',
         width: '100%',
         borderTop: '1px solid grey',
         borderBottom: '1px solid grey',
         padding: '2rem 1rem',
         [mediaQueries.small]: {
-          gridTemplate: `"event  event  event  event    " 
-                         "street street street  price"
-                         "city   city   city .    " 
-                         "date   date   time   time "`,
+          gridTemplate: `"event  event      " 
+                         "city   city   " 
+                         "date   time "`,
 
-          gridTemplateRows: '2fr 1fr  2fr 1fr',
-          gridTemplateColumns: '1fr 1fr 1fr 1fr',
+          gridTemplateRows: '2fr 2fr 1fr ',
+          gridTemplateColumns: '1fr 1fr ',
         },
       }}
     >
@@ -66,8 +80,9 @@ function Performance({ performance }: { performance: IPerformance }) {
           marginRight: '2rem',
         }}
       >
-        <Link href={performance.eventUrl} passHref>
+        <Link href={performance.url} passHref>
           <a
+            target='_blank'
             css={{
               position: 'relative',
               lineHeight: '.9',
@@ -80,7 +95,7 @@ function Performance({ performance }: { performance: IPerformance }) {
               },
             }}
           >
-            {performance.venue}
+            {performance.title}
             <span
               css={{
                 position: 'absolute',
@@ -96,13 +111,10 @@ function Performance({ performance }: { performance: IPerformance }) {
       <div
         css={{
           fontSize: 'var(--font-small)',
-          gridArea: 'street',
+          gridArea: 'city',
         }}
       >
-        {performance.addressStreet}
-      </div>
-      <div css={{ fontSize: 'var(--font-small)', gridArea: 'city' }}>
-        {performance.addressCityState}
+        {performance.venue.location}
       </div>
 
       <div
@@ -113,7 +125,7 @@ function Performance({ performance }: { performance: IPerformance }) {
           gridArea: 'date',
         }}
       >
-        {performance.date}
+        {format(new Date(performance.datetime), 'MMM do, yyyy')}
       </div>
       <div
         css={{
@@ -121,28 +133,32 @@ function Performance({ performance }: { performance: IPerformance }) {
           fontWeight: 'bold',
           gridArea: 'time',
 
-          textAlign: 'left',
-          [mediaQueries.small]: {
-            textAlign: 'right',
-          },
-        }}
-      >{`${performance.startTime} - ${performance.endTime}`}</div>
-      <div
-        css={{
-          fontSize: 'var(--font-small)',
-          gridArea: 'price',
           textAlign: 'right',
-          color: 'var(--color-grey-medium)',
         }}
-      >
-        {performance.price === 0 ? 'Free' : `$${performance.price}`}
-      </div>
+      >{`${format(new Date(performance.starts_at), 'K:mmbbb')}${
+        performance.ends_at &&
+        ` - ${format(new Date(performance.ends_at), 'K:mmbbb')}`
+      }`}</div>
     </div>
   );
 }
 
 function Performances() {
-  return (
+  const [performances, setPerformances] = React.useState<IPerformance[]>([]);
+
+  React.useEffect(() => {
+    async function getPerformances() {
+      const result = await fetch(
+        'https://rest.bandsintown.com/artists/Birthday%20Deathbed/events?app_id=c7c1586132d1f9ecf3d339e4c3849902'
+      );
+      const data = await (await result).json();
+      console.log(data);
+      setPerformances(data);
+    }
+    getPerformances();
+  }, []);
+
+  https: return (
     <div
       css={{
         display: 'flex',
@@ -179,12 +195,7 @@ function Performances() {
         }}
       >
         {performances.map((performance) => {
-          return (
-            <Performance
-              key={performance.date + performance.startTime}
-              performance={performance}
-            />
-          );
+          return <Performance key={performance.id} performance={performance} />;
         })}
       </div>
     </div>

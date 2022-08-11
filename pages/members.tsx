@@ -7,15 +7,20 @@ const bandMembers = [
     name: 'Steve Pedersen',
     role: 'Lead Vocals',
     description:
-      'Steve brings unparalleled energy and style to every performance.  His ability to recreate the styles of many different singers while still having his own voice makes him truly remarkable.',
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis voluptatum porro laboriosam ipsa quia? Dolorum maxime assumenda odit soluta velit odio quas? Est quod in amet? Aspernatur placeat sed ipsa!',
     pic: '/images/steve_p_birthday_deathbed.jpg',
     altText: 'Lead singer Steve Pedersen',
   },
   {
     name: 'Damien Smith',
     role: 'Lead Guitar',
-    description:
-      'Damien Smith was born and raised in Long Beach and has been playing music professionally in Southern California for over 15 years. He has made a career out of being one of the most diverse and skilled players in the area.  His ability to play guitar, bass, drums and piano has opened many doors and created opportunities to share his talents. ',
+    description: `Damien Smith is a professional musician working out of Long Beach California. Damien Is a
+multi instrumentalist specializing in guitar, drums, bass and piano. While during the week, his
+focus is on playing rock, funk, blues and jazz, on the weekends Damien is a music director at a
+church in Redondo Beach. In addition to performing live all over Southern California with
+several bands, Damien also works as a producer and recording engineer in his own studio.
+When not working on musical projects, Damien can be found doing private music instruction
+and freelance video editing.`,
     pic: '/images/damien_birthday_deathbed.jpg',
     altText: 'Lead guitarist Damien Smith',
   },
