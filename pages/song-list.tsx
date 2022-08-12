@@ -1,4 +1,5 @@
 import { PageTitle } from 'components/page-title';
+import Head from 'next/head';
 
 const songList = [
   'Interstate Love Song',
@@ -32,6 +33,11 @@ function SongList() {
     <div
       css={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
     >
+      <Head>
+        <title>Song List</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta name='description' content='The song list of Birthday Deathbed' />
+      </Head>
       <PageTitle title='Song List' />
       <div
         css={{
