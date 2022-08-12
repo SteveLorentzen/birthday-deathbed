@@ -56,8 +56,8 @@ function Header() {
               <Image
                 alt='Birthday Deathbed Logo'
                 src='/images/short_logo_birthday_deathbed.png'
-                width='75'
-                height='50'
+                width='65'
+                height='48'
               ></Image>
             </a>
           </Link>

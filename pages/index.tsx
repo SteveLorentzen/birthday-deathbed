@@ -67,9 +67,10 @@ function Home({ performances }: { performances: IPerformance[] }) {
             <h1>
               <Image
                 src='/images/BirthdayDeathbedLogo_Sm.png'
-                width='600'
-                height='300'
+                width='640'
+                height='365'
                 alt='Birthday Deathbed'
+                priority
               ></Image>
             </h1>
           </div>
