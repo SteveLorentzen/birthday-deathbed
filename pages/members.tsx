@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { PageTitle } from '../components/page-title';
 import { mediaQueries } from 'my-constants';
+import Head from 'next/head';
 
 const bandMembers = [
   {
@@ -36,7 +37,7 @@ and freelance video editing.`,
     name: 'Erik MacPherson',
     role: 'Bass',
     description:
-      'Bike mechanic, MTB instructor,Personal trainer, bass player, dog lover, Jeep fan.',
+      'Bike mechanic, mountain bike instructor, personal trainer, bass player, dog lover, Jeep fan.',
     pic: '/images/erik_birthday_deathbed.jpg',
     altText: 'Bassist Erik MacPherson',
   },
@@ -68,6 +69,14 @@ function BandMember({
       className='band-member'
       css={{ [mediaQueries.xs]: { padding: '1.5rem' } }}
     >
+      <Head>
+        <title>Members</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta
+          name='description'
+          content='Learn about the members of Birthday Deathbed'
+        />
+      </Head>
       <div
         css={{
           position: 'relative',

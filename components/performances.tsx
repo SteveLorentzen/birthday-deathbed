@@ -1,52 +1,8 @@
-import * as React from 'react';
 import { mediaQueries } from 'my-constants';
 import { format } from 'date-fns';
 import Link from 'next/link';
 import { FaExternalLinkAlt } from 'react-icons/fa';
-
-interface IPerformance {
-  artist: {
-    artist_optin_show_phone_number: boolean;
-    facebook_page_url: string;
-    id: string;
-    image_url: string;
-    links: string;
-    mbid: string;
-    name: string;
-    options: { display_listen_unit: boolean };
-    support_url: string;
-    thumb_url: string;
-    tracker_count: number;
-    tracking: string[];
-    upcoming_event_count: number;
-    url: string;
-  };
-  artist_id: string;
-  bandsintown_plus: boolean;
-  datetime: string;
-  datetime_display_rule: string;
-  description: string;
-  ends_at: string;
-  festival_datetime_display_rule: string;
-  festival_end_date: string;
-  festival_start_date: string;
-  id: string;
-  lineup: string[];
-  offers: string[];
-  on_sale_datetime: string;
-  starts_at: string;
-  title: string;
-  url: string;
-  venue: {
-    city: string;
-    country: string;
-    latitude: string;
-    location: string;
-    longitude: string;
-    name: string;
-    region: string;
-  };
-}
+import { IPerformance } from 'interfaces-and-types';
 
 function Performance({ performance }: { performance: IPerformance }) {
   return (
@@ -128,22 +84,8 @@ function Performance({ performance }: { performance: IPerformance }) {
   );
 }
 
-function Performances() {
-  const [performances, setPerformances] = React.useState<IPerformance[]>([]);
-
-  React.useEffect(() => {
-    async function getPerformances() {
-      const result = await fetch(
-        'https://rest.bandsintown.com/artists/Birthday%20Deathbed/events?app_id=c7c1586132d1f9ecf3d339e4c3849902'
-      );
-      const data = await (await result).json();
-      console.log(data);
-      setPerformances(data);
-    }
-    getPerformances();
-  }, []);
-
-  https: return (
+function Performances({ performances }: { performances: IPerformance[] }) {
+  return (
     <div
       css={{
         display: 'flex',

@@ -3,9 +3,10 @@ import Image from 'next/image';
 import { mediaQueries } from 'my-constants';
 import { Performances } from 'components/performances';
 import { fadeup } from 'animations';
-import { url } from 'inspector';
+import { IPerformance } from 'interfaces-and-types';
+import Head from 'next/head';
 
-function Home() {
+function Home({ performances }: { performances: IPerformance[] }) {
   React.useEffect(() => {
     async function getBandData() {
       const result = await fetch(
@@ -25,6 +26,14 @@ function Home() {
         justifyContent: 'center',
       }}
     >
+      <Head>
+        <title>Home</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta
+          name='description'
+          content='Birthday Deathbed- Los Angeles based tribute to Stone Temple Pilots'
+        />
+      </Head>
       <div
         css={{
           display: 'flex',
@@ -130,7 +139,7 @@ function Home() {
             }}
           ></h3>
         </div>
-        <Performances />
+        <Performances performances={performances} />
 
         <div
           css={{
@@ -154,6 +163,25 @@ function Home() {
       </div>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  async function getPerformances() {
+    const result = await fetch(
+      'https://rest.bandsintown.com/artists/Birthday%20Deathbed/events?app_id=c7c1586132d1f9ecf3d339e4c3849902'
+    );
+    return await (await result).json();
+  }
+  try {
+    const performances = await getPerformances();
+    return {
+      props: {
+        performances,
+      },
+    };
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export default Home;

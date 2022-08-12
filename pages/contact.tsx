@@ -1,11 +1,14 @@
-import { PageTitle } from 'components/page-title';
 import { mediaQueries } from 'my-constants';
-import React from 'react';
-import styled from '@emotion/styled';
+import Head from 'next/head';
 
 function Contact() {
   return (
     <div>
+      <Head>
+        <title>Contact</title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta name='description' content='Contact info for Birthday Deathbed' />
+      </Head>
       <div
         css={{
           display: 'flex',
