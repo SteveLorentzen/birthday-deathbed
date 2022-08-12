@@ -7,18 +7,6 @@ import { IPerformance } from 'interfaces-and-types';
 import Head from 'next/head';
 
 function Home({ performances }: { performances: IPerformance[] }) {
-  React.useEffect(() => {
-    async function getBandData() {
-      const result = await fetch(
-        'https://rest.bandsintown.com/artists/Dick%20The%20Citizen/events?app_id=5a8f511d16953501bbc9d9cdacb5ea19&date=%22upcoming%22'
-      );
-      const data = await result.json();
-
-      console.log(data);
-    }
-    getBandData();
-  }, []);
-
   return (
     <div
       css={{
