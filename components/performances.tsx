@@ -44,33 +44,33 @@ function Performance({ performance }: { performance: IPerformance }) {
           gridArea: 'event',
         }}
       >
-        <Link href={performance.url} passHref>
-          <a
-            target='_blank'
+        <a
+          href={performance.url}
+          target='_blank'
+          rel='noreferrer'
+          css={{
+            display: 'flex',
+            alignItems: 'center',
+            position: 'relative',
+            lineHeight: '.9',
+            fontSize: 'var(--font-small)',
+            color: 'var(--color-accent-dark)',
+            fontWeight: 'bolder',
+            cursor: 'pointer',
+            ':hover': {
+              color: 'var(--color-accent-dark-hover)',
+            },
+          }}
+        >
+          {performance.title}
+          <span
             css={{
-              display: 'flex',
-              alignItems: 'center',
-              position: 'relative',
-              lineHeight: '.9',
-              fontSize: 'var(--font-small)',
-              color: 'var(--color-accent-dark)',
-              fontWeight: 'bolder',
-              cursor: 'pointer',
-              ':hover': {
-                color: 'var(--color-accent-dark-hover)',
-              },
+              marginLeft: '1rem',
             }}
           >
-            {performance.title}
-            <span
-              css={{
-                marginLeft: '1rem',
-              }}
-            >
-              <FaExternalLinkAlt />
-            </span>
-          </a>
-        </Link>
+            <FaExternalLinkAlt />
+          </span>
+        </a>
       </div>
       <div
         css={{

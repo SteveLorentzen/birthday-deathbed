@@ -30,27 +30,32 @@ function Footer() {
             },
           }}
         >
-          <Link href='http://www.instagram.com/dickthecitizen'>
-            <a>
-              <Image
-                src='/images/Instagram_Glyph_White.png'
-                alt='Instagram logo'
-                width={50}
-                height={50}
-              ></Image>
-            </a>
-          </Link>
-          <Link href='http://www.facebook.com/dickthecitizenband'>
-            <a>
-              <Image
-                css={{ transform: 'translateY(-.1rem)' }}
-                src='/images/f_logo_RGB-White_58.png'
-                alt='Instagram logo'
-                width={55}
-                height={55}
-              ></Image>
-            </a>
-          </Link>
+          <a
+            href='http://www.instagram.com/dickthecitizen'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <Image
+              src='/images/Instagram_Glyph_White.png'
+              alt='Instagram logo'
+              width={50}
+              height={50}
+            ></Image>
+          </a>
+
+          <a
+            href='http://www.facebook.com/dickthecitizenband'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <Image
+              css={{ transform: 'translateY(-.1rem)' }}
+              src='/images/f_logo_RGB-White_58.png'
+              alt='Instagram logo'
+              width={55}
+              height={55}
+            ></Image>
+          </a>
         </div>
       </div>
     </div>
