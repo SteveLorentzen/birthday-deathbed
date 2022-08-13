@@ -1,14 +1,22 @@
-import * as React from 'react';
-import { keyframes } from '@emotion/react';
-import Image from 'next/image';
+import * as React from "react";
+import { keyframes } from "@emotion/react";
+import Image from "next/image";
 
 const slideup = keyframes`
 0% {
     transform: translateY(100%);
   }
 
-  100% {
+  25% {
     transform: translateY(0)
+  }
+
+  75% {
+    transform: translateY(0)
+  }
+
+  100% {
+    transform: translateY(100%);
   }
 `;
 
@@ -20,11 +28,11 @@ function EasterEgg() {
     <>
       <div
         css={{
-          position: 'fixed',
+          position: "fixed",
           bottom: 0,
           right: 0,
-          width: '5%',
-          height: '80px',
+          width: "5%",
+          height: "80px",
         }}
         onClick={() => {
           setCount((prevCount) => {
@@ -40,22 +48,22 @@ function EasterEgg() {
       {showEasterEgg ? (
         <div
           css={{
-            width: '240px',
-            height: '160px',
-            position: 'fixed',
+            width: "240px",
+            height: "160px",
+            position: "fixed",
             bottom: 0,
-            left: '5%',
-            animation: `${slideup} 1s ease`,
+            left: "5%",
+            animation: `${slideup} 2s ease`,
           }}
-          className='no-highlight'
+          className="no-highlight"
         >
           <Image
-            src='/images/steve_p.png'
-            alt='Steve P Easter Egg'
+            src="/images/steve_p.png"
+            alt="Steve P Easter Egg"
             width={240}
             height={160}
             priority
-            className='no-highlight'
+            className="no-highlight"
           ></Image>
         </div>
       ) : null}
