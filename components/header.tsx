@@ -50,6 +50,7 @@ function Header() {
               transform: ' translateY(.25rem) scale(1.05)',
             },
           }}
+          onClick={() => setMenuIsOpen(false)}
         >
           <Link href='/'>
             <a>
